@@ -109,19 +109,7 @@ This backend will be developed in coordination with:
 - ICT Center — AUST
 - Campus Safety Division — AUST
 
----
 
-## Development Timeline
 
-| Phase | Scope | Target |
-|-------|-------|--------|
-| Phase 1 | Frontend Only | 2026 Q2 |
-| Phase 2 | Backend API + Auth + Camera | 2026 Q3 |
-| Phase 3 | Vehicle Tracking + LPR | 2026 Q4 |
-| Phase 4 | ML Predictions + Notifications | 2027 Q1 |
-| Phase 5 | Admin Panel + Full Integration | 2027 Q2 |
-
----
-
-*AUST Intelligent Parking Management System — CSE Department, Ahsanullah University of Science and Technology*  
+*AUST Intelligent Parking Management System —  Ahsanullah University of Science and Technology*  
 *141 & 142, Love Road, Tejgaon Industrial Area, Dhaka-1208, Bangladesh*
