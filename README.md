@@ -162,13 +162,13 @@ A response form allowing AUST members to submit issues, report parking blockages
 
 ## 🔮 Future Updates & Roadmap
 
-| Phase | Scope | Description | Target |
-| :--- | :--- | :--- | :--- |
-| **Phase 1** | **Frontend Client** | Interactive client dashboard with mocks and UI layout maps | **2026 Q2** *(Completed)* |
-| **Phase 2** | **Backend API & WS** | FastAPI setup, JWT authentication, and WebSockets live streams | **2026 Q3** |
-| **Phase 3** | **Vision & LPR** | CCTV camera feeds integration and YOLOv8 plate scanner implementation | **2026 Q4** |
-| **Phase 4** | **ML Predictions** | Historical parking demand analysis integrated with AUST calendar | **2027 Q1** |
-| **Phase 5** | **System Integration**| Integration with AUST ICT Center database and security gates | **2027 Q2** |
+| Phase | Scope | Description |
+| :--- | :--- | :--- |
+| **Phase 1** | **Frontend Client** | Interactive client dashboard with mocks and UI layout maps *(Completed)* |
+| **Phase 2** | **Backend API & WS** | FastAPI setup, JWT authentication, and WebSockets live streams |
+| **Phase 3** | **Vision & LPR** | CCTV camera feeds integration and YOLOv8 plate scanner implementation |
+| **Phase 4** | **ML Predictions** | Historical parking demand analysis integrated with AUST calendar |
+| **Phase 5** | **System Integration**| Integration with AUST ICT Center database and security gates |
 
 ---
 
