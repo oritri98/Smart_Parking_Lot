@@ -148,7 +148,6 @@ AUST-IPMS/
 │   └── railway.json
 │
 ├── docker-compose.yml         # Unified local orchestration (all 3 services)
-├── RAILWAY_DEPLOYMENT.md      # Step-by-step Railway cloud deployment guide
 └── README.md
 ```
 
@@ -358,8 +357,6 @@ npm run dev
 ## ☁️ Cloud Deployment (Railway)
 
 All 3 services are fully Railway-deploy-ready with `Dockerfile` and `railway.json` configurations in each directory.
-
-See the full step-by-step guide: **[RAILWAY_DEPLOYMENT.md](./RAILWAY_DEPLOYMENT.md)**
 
 ```bash
 # Install Railway CLI

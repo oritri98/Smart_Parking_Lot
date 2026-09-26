@@ -64,6 +64,8 @@ credentials/
 id_rsa*
 *.pfx
 *.p12
+RAILWAY_DEPLOYMENT.md
+railway_deployment.md
 
 # ── Databases & Cache (never commit live databases) ──────────
 *.sqlite
