@@ -204,24 +204,26 @@ export function BasementFloorSelector({ selected, onChange }: BasementFloorSelec
     { label: 'Basement 2 — B2', value: 'B2', desc: 'Faculty & Guest · 80 slots' },
   ];
   return (
-    <div className="flex flex-col sm:flex-row gap-2 p-1.5 rounded-2xl w-fit mx-auto"
-      style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-soft)' }}>
-      {tabs.map((tab) => (
-        <button key={tab.value} id={`floor-tab-${tab.value.toLowerCase()}`}
-          onClick={() => onChange(tab.value)}
-          className="relative px-5 py-3 rounded-xl transition-all duration-300 text-left sm:text-center"
-          style={selected === tab.value
-            ? { background: 'var(--accent-soft)', border: '1px solid var(--border-hover)', color: 'var(--accent)' }
-            : { color: 'var(--text-muted)', border: '1px solid transparent' }}>
-          {selected === tab.value && (
-            <motion.div layoutId="floor-indicator" className="absolute inset-0 rounded-xl"
-              style={{ background: 'var(--accent-soft)' }}
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }} />
-          )}
-          <p className="font-semibold text-sm relative z-10">{tab.label}</p>
-          <p className="text-xs mt-0.5 relative z-10 opacity-70">{tab.desc}</p>
-        </button>
-      ))}
+    <div className="overflow-x-auto">
+      <div className="flex flex-row gap-2 p-1.5 rounded-2xl w-fit mx-auto"
+        style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-soft)', minWidth: 'max-content' }}>
+        {tabs.map((tab) => (
+          <button key={tab.value} id={`floor-tab-${tab.value.toLowerCase()}`}
+            onClick={() => onChange(tab.value)}
+            className="relative px-4 py-2.5 rounded-xl transition-all duration-300 text-center whitespace-nowrap"
+            style={selected === tab.value
+              ? { background: 'var(--accent-soft)', border: '1px solid var(--border-hover)', color: 'var(--accent)' }
+              : { color: 'var(--text-muted)', border: '1px solid transparent' }}>
+            {selected === tab.value && (
+              <motion.div layoutId="floor-indicator" className="absolute inset-0 rounded-xl"
+                style={{ background: 'var(--accent-soft)' }}
+                transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }} />
+            )}
+            <p className="font-semibold text-sm relative z-10">{tab.label}</p>
+            <p className="text-xs mt-0.5 relative z-10 opacity-70">{tab.desc}</p>
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
