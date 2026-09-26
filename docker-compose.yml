@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # 1. Laravel 12 Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aust-ipms-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=${APP_ENV:-production}
+      - APP_DEBUG=${APP_DEBUG:-false}
+      - APP_KEY=${APP_KEY}
+      - IPMS_ADMIN_EMAIL=${IPMS_ADMIN_EMAIL:-admin@aust.edu}
+      - IPMS_ADMIN_HASH=${IPMS_ADMIN_HASH}
+      - DB_CONNECTION=sqlite
+      - CACHE_STORE=file
+      - SESSION_DRIVER=file
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  # 2. Vision & LPR ML Microservice (FastAPI + YOLOv8)
+  vision-service:
+    build:
+      context: ./vision-service
+      dockerfile: Dockerfile
+    container_name: aust-ipms-vision
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+      - YOLO_WEIGHTS_PATH=yolov8n.pt
+    restart: always
+
+  # 3. React Vite Frontend Client
+  # NOTE: VITE_* vars must be passed as build ARGS (not env), because Vite
+  # statically bakes them into the JS bundle at build time, not at runtime.
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000/api/v1
+        VITE_VISION_API_URL: http://localhost:8001/api/v1/ml
+    container_name: aust-ipms-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+      - vision-service
+    restart: always
