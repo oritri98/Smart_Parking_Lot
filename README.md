@@ -381,15 +381,6 @@ cd ../frontend && railway up
 | `frontend` | `VITE_API_BASE_URL` | Deployed backend Railway URL + `/api/v1` |
 | `frontend` | `VITE_VISION_API_URL` | Deployed vision service Railway URL + `/api/v1/ml` |
 
----
-
-## 🔐 Admin Access
-
-The admin panel is protected and not linked from any visible UI navigation.
-
-- **Admin Login URL**: `/aust-ipms-admin`
-- **Admin Panel URL**: `/admin` (redirects to login if unauthenticated)
-- **Default Credentials** (development): `admin@aust.edu` — set `IPMS_ADMIN_HASH` in `.env`
 
 ---
 
