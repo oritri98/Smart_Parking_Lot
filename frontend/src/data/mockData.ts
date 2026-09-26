@@ -59,7 +59,7 @@ export const dashboardStats: DashboardStats = {
   peakHour: '9:30 AM – 11:00 AM',
   predictedDemand: 87,
   isSimulated: true,
-  operatingDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+  operatingDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   totalVehiclesToday: 194,
   averageUtilization: 74.5,
   activeZones: 3,
@@ -106,6 +106,8 @@ export const dailyUsageData: DailyData[] = [
   { day: 'Tuesday', student: 90, faculty: 74, guest: 62, total: 80, date: '2026-06-03' },
   { day: 'Wednesday', student: 86, faculty: 70, guest: 58, total: 76, date: '2026-06-04' },
   { day: 'Thursday', student: 68, faculty: 52, guest: 45, total: 60, date: '2026-06-05' },
+  { day: 'Friday', student: 42, faculty: 35, guest: 28, total: 38, date: '2026-06-06' },
+  { day: 'Saturday', student: 58, faculty: 48, guest: 36, total: 50, date: '2026-06-07' },
 ];
 
 // ──────────────────────────────────────────────────────────
@@ -209,7 +211,7 @@ export const mockNotifications: Notification[] = [
 // OPERATING SCHEDULE
 // ──────────────────────────────────────────────────────────
 export const operatingSchedule = {
-  days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+  days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   openTime: '7:30 AM',
   closeTime: '9:00 PM',
   peakHours: [

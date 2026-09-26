@@ -93,6 +93,7 @@ export interface Notification {
   isRead: boolean;
   category: 'parking' | 'security' | 'maintenance' | 'announcement' | 'proctor';
   zone?: string;
+  urgency?: 'normal' | 'priority' | 'urgent';
 }
 
 export interface NavLink {
