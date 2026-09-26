@@ -388,9 +388,9 @@ cd ../frontend && railway up
 
 This project is developed to align with AUST campus infrastructure guidelines and in coordination with:
 - **Office of the Proctor**, AUST
-- **Office of the University Engineer**, AUST
+- **Security Office**, AUST
 - **ICT Center**, AUST
-- **Campus Safety Division**, AUST
+  
 
 ---
 
