@@ -8,6 +8,7 @@ import Rules from '../pages/Rules';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Login from '../pages/Login';
+import AdminLogin from '../pages/AdminLogin';
 import Profile from '../pages/Profile';
 import Notifications from '../pages/Notifications';
 import AdminPanel from '../pages/AdminPanel';
@@ -25,10 +26,21 @@ const router = createBrowserRouter([
       { path: 'rules', element: <Rules /> },
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
+
+      // Public login — Student / Faculty / Staff (Coming Soon)
       { path: 'login', element: <Login /> },
+
+      // Hidden admin login — not linked from anywhere in the UI
+      // Access by typing the URL directly: /aust-ipms-admin
+      { path: 'aust-ipms-admin', element: <AdminLogin /> },
+
+      // Admin control panel — protected, redirects to AdminLogin if not authenticated
+      { path: 'admin', element: <AdminPanel /> },
+
+      // User pages
       { path: 'profile', element: <Profile /> },
       { path: 'notifications', element: <Notifications /> },
-      { path: 'admin', element: <AdminPanel /> },
+
       { path: '*', element: <NotFound /> },
     ],
   },
