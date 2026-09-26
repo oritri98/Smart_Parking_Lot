@@ -8,5 +8,6 @@ export const apiClient = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  timeout: 5000,
+  // Short timeout so pages fall back to mock data quickly when backend is offline
+  timeout: 1500,
 });
