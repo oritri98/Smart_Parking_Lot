@@ -1,44 +1,87 @@
-# Dependency directories
+# ──────────────────────────────────────────────────────────
+# AUST-IPMS Root .gitignore
+# ──────────────────────────────────────────────────────────
+
+# ── Node / Frontend ──────────────────────────────────────
 node_modules/
 jspm_packages/
 web_modules/
-
-# Local env files (Secrets, Keys, Credentials)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.env
-secrets/
-credentials/
-*.pem
-*.key
-
-# Build and distribution directories
 dist/
 dist-ssr/
 build/
 out/
 .next/
 .nuxt/
-
-# Logs and databases
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-*.log
-*.sqlite
-*.db
 
-# Operating System files
+# ── PHP / Laravel Backend ─────────────────────────────────
+/backend/vendor/
+/backend/node_modules/
+/backend/public/build/
+/backend/public/hot/
+/backend/public/storage/
+/backend/storage/*.key
+/backend/storage/pail/
+/backend/storage/logs/
+/backend/storage/framework/cache/data/
+/backend/storage/framework/sessions/
+/backend/storage/framework/views/
+/backend/bootstrap/cache/*.php
+
+# ── Python / Vision ML Service ────────────────────────────
+vision-service/__pycache__/
+vision-service/*.py[cod]
+vision-service/*.pyo
+vision-service/*.pyd
+vision-service/.venv/
+vision-service/venv/
+vision-service/env/
+# YOLO / ML model weight files (large binary, download on deploy)
+vision-service/*.pt
+vision-service/*.weights
+vision-service/*.onnx
+vision-service/runs/
+
+# ── Secret & Credential Files ──────────────────────────────
+# ⚠️ NEVER commit .env files — set these as Railway/CI env vars
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+**/*.env
+!.env.example
+!**/.env.example
+secrets/
+credentials/
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa*
+*.pfx
+*.p12
+
+# ── Databases & Cache (never commit live databases) ──────────
+*.sqlite
+*.sqlite3
+*.db
+**/*.sqlite*
+**/*.db
+database/database.sqlite
+backend/database/database.sqlite
+
+# ── Logs ──────────────────────────────────────────────────
+*.log
+
+# ── OS & IDE Files ─────────────────────────────────────────
 .DS_Store
 Thumbs.db
 ehthumbs.db
 desktop.ini
-
-# IDEs and editors
 .idea/
 .vscode/
 *.suo
@@ -49,3 +92,6 @@ desktop.ini
 .project
 .classpath
 .settings/
+.phpactor.json
+.phpunit.result.cache
+/.phpunit.cache/
