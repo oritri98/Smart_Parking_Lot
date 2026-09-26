@@ -85,7 +85,7 @@ export default function Footer() {
             <div className="mt-4 pt-4" style={{ borderTop: '1px solid var(--border-soft)' }}>
               <div className="flex items-center gap-2 text-xs" style={{ color: 'var(--text-muted)' }}>
                 <Clock size={13} />
-                <span>Sun – Thu · 7:30 AM – 9:00 PM</span>
+                <span>Open 7 Days · 7:30 AM – 9:00 PM</span>
               </div>
             </div>
           </div>
