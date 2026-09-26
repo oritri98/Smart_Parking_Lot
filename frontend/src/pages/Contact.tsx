@@ -152,7 +152,7 @@ export default function Contact() {
                 </div>
                 <div className="flex gap-3">
                   <Clock size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
-                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Sunday – Thursday, 7:30 AM – 9:00 PM</p>
+                  <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Open 7 Days, 7:30 AM – 9:00 PM</p>
                 </div>
                 <div className="flex gap-3">
                   <Mail size={16} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />

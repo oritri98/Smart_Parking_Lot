@@ -63,7 +63,7 @@ const ruleSections: RuleSection[] = [
       'Commercial vehicles, delivery vans, and large trucks must use the university\'s designated delivery area — not B2 Guest Zone.',
       'Visitors accompanying official university delegations will be allocated reserved visitor slots.',
       'Unregistered vehicles detected by the system will be automatically classified as Guest & Visitor vehicles.',
-      'Visitor parking is only available during campus operating hours: Sunday–Thursday, 7:30 AM – 9:00 PM.',
+      'Visitor parking is only available during campus operating hours: Open 7 Days, 7:30 AM – 9:00 PM.',
     ],
   },
   {
@@ -89,7 +89,7 @@ const ruleSections: RuleSection[] = [
     badge: 'Separate Designated Area',
     rules: [
       'University transport pool vehicles (buses, minivans) park in the designated University Transport Pool area — separate from B1/B2.',
-      'Transport pool drivers are under direct supervision of the Office of the University Engineer.',
+      'Transport pool drivers are under direct supervision of university transport administration.',
       'All university transport vehicles must display official AUST fleet registration plates.',
       'Scheduling and dispatch of transport pool vehicles is managed by the university administration.',
       'Private vehicles must not use the transport pool area under any circumstances.',
@@ -180,7 +180,7 @@ export default function Rules() {
           <Clock size={16} className="text-cyan-400 flex-shrink-0" />
           <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
             <span style={{ color: 'var(--accent)', fontWeight: 600 }}>Operating Hours:</span>{' '}
-            Sunday – Thursday, 7:30 AM – 9:00 PM. The parking facility is closed on Friday and Saturday.
+            Open 7 Days a Week, 7:30 AM – 9:00 PM. The parking facility operates daily including weekends to support campus events and activities.
           </p>
         </motion.div>
       </div>
@@ -244,8 +244,7 @@ export default function Rules() {
           style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-soft)' }}>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             These guidelines are issued in coordination with the{' '}
-            <span style={{ color: 'var(--text-secondary)' }}>Office of the Proctor</span>,{' '}
-            <span style={{ color: 'var(--text-secondary)' }}>Office of the University Engineer</span>, and{' '}
+            <span style={{ color: 'var(--text-secondary)' }}>Office of the Proctor</span> and{' '}
             <span style={{ color: 'var(--text-secondary)' }}>Campus Safety Division</span> of{' '}
             Ahsanullah University of Science and Technology.
             Rules are subject to revision in alignment with university policy updates.

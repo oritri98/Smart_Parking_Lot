@@ -31,7 +31,6 @@ const faculties = [
 const keyOffices = [
   { name: 'Office of the Vice-Chancellor', url: 'https://www.aust.edu/administration/offices/office_of_the_vice_chancellor' },
   { name: 'Office of the Proctor', url: 'https://www.aust.edu/administration/offices/office_of_the_proctor' },
-  { name: 'Office of the University Engineer', url: 'https://www.aust.edu/administration/offices/office_of_the_university_engineer' },
   { name: 'ICT Center', url: 'http://ictcenter.aust.edu/' },
   { name: 'Office of the Registrar', url: 'https://www.aust.edu/administration/offices/office_of_the_registrar' },
   { name: 'Kazi Fazlur Rahman Library', url: 'https://www.aust.edu/administration/offices/kazi_fazlur_rahman_library' },
@@ -275,10 +274,9 @@ export default function About() {
           <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
             AUST-IPMS operates in full coordination with the following AUST administrative bodies to ensure compliance, security, and operational effectiveness:
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               'Office of the Proctor',
-              'Office of the University Engineer',
               'ICT Center, AUST',
               'Campus Safety Division',
             ].map(o => (
@@ -297,7 +295,7 @@ export default function About() {
               { value: '220', label: 'Slots Monitored', sub: 'Basement 1 & 2', color: '#22d3ee' },
               { value: '40%', label: 'Less Search Time', sub: 'Target improvement', color: '#4ade80' },
               { value: '85%+', label: 'Accuracy Target', sub: 'Monitoring precision', color: '#a78bfa' },
-              { value: '5 Days', label: 'Weekly Coverage', sub: 'Sunday – Thursday', color: '#fb923c' },
+              { value: '7 Days', label: 'Weekly Coverage', sub: 'Open Every Day', color: '#fb923c' },
             ].map(s => (
               <div key={s.label} className="card p-5 text-center">
                 <p className="text-2xl font-black mb-0.5" style={{ color: s.color, fontFamily: 'Outfit, sans-serif' }}>{s.value}</p>

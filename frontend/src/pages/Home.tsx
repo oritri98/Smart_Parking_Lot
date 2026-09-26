@@ -87,7 +87,7 @@ export default function Home() {
                 {[
                   { icon: <span className="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse" style={{ boxShadow: '0 0 8px #4ade80' }} />, label: `${dashboardStats.availableSlots} Available Now`, color: '#4ade80' },
                   { icon: <Clock size={14} />, label: 'Peak: 9:30–11:00 AM', color: 'var(--accent)' },
-                  { icon: <Calendar size={14} />, label: 'Sun–Thu Operating', color: '#60a5fa' },
+                  { icon: <Calendar size={14} />, label: '7-Day Operations', color: '#60a5fa' },
                 ].map((s, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs font-semibold px-3 py-2 rounded-full"
                     style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-soft)', color: 'var(--text-secondary)', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
