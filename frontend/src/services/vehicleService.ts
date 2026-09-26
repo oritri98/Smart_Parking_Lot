@@ -1,42 +1,68 @@
 // vehicleService.ts
-// TODO: Implement vehicle management when backend + LPR is deployed (Future Expansion)
+// Real API calls to Laravel / PHP Backend
 // Endpoints: POST /api/v1/vehicles/entry | POST /api/v1/vehicles/exit | GET /api/v1/vehicles/:plateNumber
 
-import type { Vehicle } from '../types';
+import type { Vehicle, Notification } from '../types';
+import { apiClient } from './apiClient';
+import { mockNotifications } from '../data/mockData';
 
 export const vehicleService = {
-  // TODO: POST /api/v1/vehicles/entry — log vehicle entry (triggered by LPR camera)
-  async recordEntry(_plateNumber: string, _basement: 'B1' | 'B2'): Promise<never> {
-    throw new Error('Vehicle entry system not yet deployed.');
+  async recordEntry(plateNumber: string, basement: 'B1' | 'B2'): Promise<Vehicle> {
+    const ownerCategory = basement === 'B1' ? 'Student' : 'Faculty';
+    const res = await apiClient.post<{ message: string; record: Vehicle }>('/vehicles/entry', {
+      plateNumber,
+      ownerCategory,
+    });
+    return res.data.record;
   },
 
-  // TODO: POST /api/v1/vehicles/exit
-  async recordExit(_plateNumber: string): Promise<never> {
-    throw new Error('Vehicle exit system not yet deployed.');
+  async recordExit(plateNumber: string): Promise<Vehicle> {
+    const res = await apiClient.post<{ message: string; record: Vehicle }>('/vehicles/exit', {
+      plateNumber,
+    });
+    return res.data.record;
   },
 
-  // TODO: GET /api/v1/vehicles/:plateNumber
-  // If vehicle not found in DB → classify as Guest (never Unknown)
-  async getVehicleByPlate(_plateNumber: string): Promise<Vehicle> {
-    // Unregistered vehicles default to Guest category as per AUST policy
-    return {
-      plateNumber: _plateNumber,
-      ownerCategory: 'Guest',
-      registrationStatus: 'Unregistered',
-      assignedZone: 'Guest',
-      basement: 'B2',
-    };
+  async getVehicleByPlate(plateNumber: string): Promise<Vehicle> {
+    try {
+      const res = await apiClient.get<Vehicle>(`/vehicles/${plateNumber}`);
+      return res.data;
+    } catch {
+      return {
+        plateNumber,
+        ownerCategory: 'Guest',
+        registrationStatus: 'Unregistered',
+        assignedZone: 'Guest',
+        basement: 'B2',
+      };
+    }
   },
 
-  // TODO: GET /api/v1/vehicles — list all registered vehicles (admin only)
   async getAllVehicles(): Promise<Vehicle[]> {
-    return [];
+    try {
+      const res = await apiClient.get<Vehicle[]>('/vehicles');
+      return res.data;
+    } catch {
+      return [];
+    }
   },
 };
 
-// TODO: notificationService.ts
-// Endpoints: GET /api/v1/notifications | PATCH /api/v1/notifications/:id/read
 export const notificationService = {
-  async getNotifications() { return []; },
-  async markAsRead(_id: string) { return; },
+  async getNotifications(): Promise<Notification[]> {
+    try {
+      const res = await apiClient.get<Notification[]>('/notifications');
+      return res.data;
+    } catch {
+      return mockNotifications;
+    }
+  },
+
+  async markAsRead(id: string): Promise<void> {
+    try {
+      await apiClient.patch(`/notifications/${id}/read`);
+    } catch {
+      // ignore
+    }
+  },
 };

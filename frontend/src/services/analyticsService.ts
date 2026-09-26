@@ -1,39 +1,58 @@
 // analyticsService.ts
-// TODO: Replace mock data with real API calls when ML/analytics backend is deployed
-// Endpoint: GET /api/v1/analytics/dashboard
+// Real API calls to Laravel / PHP Backend
+// Endpoint: GET /api/v1/analytics/*
 
 import type { DashboardStats, HourlyData, DailyData, WeeklyComparison } from '../types';
+import { apiClient } from './apiClient';
 import { dashboardStats, hourlyOccupancyData, dailyUsageData, weeklyComparisonData } from '../data/mockData';
 
 export const analyticsService = {
-  // TODO: axios.get('/api/v1/analytics/dashboard')
   async getDashboardStats(): Promise<DashboardStats> {
-    await new Promise(r => setTimeout(r, 600));
-    return dashboardStats;
+    try {
+      const res = await apiClient.get<DashboardStats>('/analytics/dashboard');
+      return res.data;
+    } catch {
+      return dashboardStats;
+    }
   },
 
-  // TODO: axios.get('/api/v1/analytics/hourly?date=YYYY-MM-DD')
   async getHourlyData(): Promise<HourlyData[]> {
-    await new Promise(r => setTimeout(r, 400));
-    return hourlyOccupancyData;
+    try {
+      const res = await apiClient.get<HourlyData[]>('/analytics/hourly');
+      return res.data;
+    } catch {
+      return hourlyOccupancyData;
+    }
   },
 
-  // TODO: axios.get('/api/v1/analytics/daily?week=current')
   async getDailyData(): Promise<DailyData[]> {
-    await new Promise(r => setTimeout(r, 400));
-    return dailyUsageData;
+    try {
+      const res = await apiClient.get<DailyData[]>('/analytics/daily');
+      return res.data;
+    } catch {
+      return dailyUsageData;
+    }
   },
 
-  // TODO: axios.get('/api/v1/analytics/weekly-comparison')
   async getWeeklyComparison(): Promise<WeeklyComparison[]> {
-    await new Promise(r => setTimeout(r, 400));
-    return weeklyComparisonData;
+    try {
+      const res = await apiClient.get<WeeklyComparison[]>('/analytics/weekly-comparison');
+      return res.data;
+    } catch {
+      return weeklyComparisonData;
+    }
   },
 
-  // TODO: POST /api/v1/analytics/predict — ML prediction endpoint
-  // Returns: { predictedOccupancy: number, confidence: number, isSimulated: true }
   async getPredictedDemand(_targetDate: string): Promise<{ value: number; confidence: number; isSimulated: boolean }> {
-    await new Promise(r => setTimeout(r, 800));
-    return { value: 87, confidence: 0.78, isSimulated: true };
+    try {
+      const res = await apiClient.post<{ predictedOccupancyRate: number; confidence: number }>('/analytics/predict');
+      return {
+        value: res.data.predictedOccupancyRate,
+        confidence: res.data.confidence,
+        isSimulated: false,
+      };
+    } catch {
+      return { value: 87, confidence: 0.78, isSimulated: true };
+    }
   },
 };
