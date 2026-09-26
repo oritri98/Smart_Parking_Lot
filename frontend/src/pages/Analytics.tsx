@@ -132,7 +132,7 @@ export default function Analytics() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <ChartCard
             title="Daily Usage Trends"
-            subtitle="Occupancy percentage per zone — Sunday to Thursday"
+            subtitle="Occupancy percentage per zone — 7 Days (Sunday to Saturday)"
           >
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={dailyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
@@ -208,18 +208,18 @@ export default function Analytics() {
             <BookOpen size={20} className="text-cyan-400" />
             <h3 className="font-bold" style={{ fontFamily: 'Outfit, sans-serif', color: 'var(--text-primary)' }}>AUST Operating Schedule</h3>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
-            {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'].map((day) => (
+          <div className="grid grid-cols-2 sm:grid-cols-7 gap-2.5">
+            {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
               <div key={day} className="text-center p-3 rounded-xl"
                 style={{ background: 'var(--accent-soft)', border: '1px solid var(--border-soft)' }}>
                 <p style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '0.875rem', fontFamily: 'Outfit, sans-serif' }}>{day.slice(0, 3)}</p>
-                <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>
-                  {day === 'Thursday' ? 'Short day' : 'Full day'}
+                <p className="text-xs mt-1 font-medium" style={{ color: 'var(--text-secondary)' }}>
+                  Full day
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-xs text-slate-500 mt-3 text-center">Peak hours: 9:30–11:00 AM and 1:00–2:30 PM · Low activity: Before 8:00 AM and after 7:00 PM</p>
+          <p className="text-xs text-slate-500 mt-3 text-center">Open 7 Days a Week (7:30 AM – 9:00 PM) · Peak hours: 9:30–11:00 AM and 1:00–2:30 PM · Low activity: Before 8:00 AM and after 7:00 PM</p>
         </div>
       </div>
     </div>
