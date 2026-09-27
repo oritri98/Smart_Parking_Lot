@@ -1,4 +1,5 @@
 # Stage 1: Build Vite React bundle
+# cache-bust: v3
 FROM node:20-alpine AS build
 
 WORKDIR /app
